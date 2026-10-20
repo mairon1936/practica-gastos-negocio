@@ -12,3 +12,16 @@ def	agregar_gasto(gastos,	descripcion,	monto,	categoria):
 def	ver_gastos(gastos):
     for	gasto	in	gastos:
         print(f"{gasto['descripcion']}	({gasto['categoria']}):	${gasto['monto']}")
+
+def buscar_por_categoria(gastos, categoria_buscada):
+    return [
+        gasto
+        for gasto in gastos
+        if gasto["categoria"].casefold() == categoria_buscada.casefold()
+    ]
+
+def total_por_categoria(gastos, categoria_buscada):
+    return sum(
+        gasto["monto"]
+        for gasto in buscar_por_categoria(gastos, categoria_buscada)
+    )
