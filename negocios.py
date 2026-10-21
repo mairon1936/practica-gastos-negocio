@@ -32,8 +32,11 @@ print(buscar_por_categoria(gastos_negocio,	"INSUMOS"))
 print(total_por_categoria(gastos_negocio,	"insumos"))
 
 while True:
+    print("1. Ver todos los gastos")
     print("0. Salir")
     opcion = input("Seleccione una opción: ")
-    if opcion == "0":
+    if opcion == "1":
+        ver_gastos(gastos_negocio)
+    elif opcion == "0":
         print("Hasta luego")
         break
