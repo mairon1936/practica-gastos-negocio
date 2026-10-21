@@ -24,4 +24,9 @@ def total_por_categoria(gastos, categoria_buscada):
     return sum(
         gasto["monto"]
         for gasto in buscar_por_categoria(gastos, categoria_buscada)
+
     )
+
+
+print(buscar_por_categoria(gastos_negocio,	"INSUMOS"))
+print(total_por_categoria(gastos_negocio,	"insumos"))
