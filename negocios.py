@@ -33,10 +33,16 @@ print(total_por_categoria(gastos_negocio,	"insumos"))
 
 while True:
     print("1. Ver todos los gastos")
+    print("2. Agregar un gasto nuevo")
     print("0. Salir")
     opcion = input("Seleccione una opción: ")
     if opcion == "1":
         ver_gastos(gastos_negocio)
+    elif opcion == "2":
+        descripcion = input("Descripción: ")
+        monto = input("Monto: ")
+        categoria = input("Categoría: ")
+        agregar_gasto(gastos_negocio, descripcion, monto, categoria)
     elif opcion == "0":
         print("Hasta luego")
         break
