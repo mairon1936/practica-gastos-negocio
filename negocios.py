@@ -35,6 +35,7 @@ while True:
     print("1. Ver todos los gastos")
     print("2. Agregar un gasto nuevo")
     print("3. Buscar gastos por categoria")
+    print("4. Ver el total gastado en una categoria")
     print("0. Salir")
     opcion = input("Seleccione una opción: ")
     if opcion == "1":
@@ -48,6 +49,10 @@ while True:
         categoria = input("Categoría: ")
         resultados = buscar_por_categoria(gastos_negocio, categoria)
         ver_gastos(resultados)
+    elif opcion == "4":
+        categoria = input("Categoría: ")
+        total = total_por_categoria(gastos_negocio, categoria)
+        print(f"Total gastado en {categoria}: ${total:.2f}")
     elif opcion == "0":
         print("Hasta luego")
         break
