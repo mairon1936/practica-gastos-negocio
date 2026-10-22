@@ -1,9 +1,10 @@
-from negocios import gastos_negocio, ver_gastos
+from negocios import GestorGastos, gastos_negocio
 
 
 def main():
+    gestor = GestorGastos(gastos_negocio)
     print("Gastos del negocio:")
-    ver_gastos(gastos_negocio)
+    gestor.ver_gastos()
 
 
 if __name__ == "__main__":
