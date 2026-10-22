@@ -45,6 +45,13 @@ class GestorGastos:
             for gasto in self.buscar_por_categoria(categoria_buscada)
         )
 
+    def categoria_mas_costosa(self):
+        totales = {}
+        for gasto in self.gastos:
+            categoria = gasto["categoria"]
+            totales[categoria] = totales.get(categoria, 0) + gasto["monto"]
+        return max(totales, key=totales.get)
+
 
 def main():
     gestor = GestorGastos(gastos_negocio)
