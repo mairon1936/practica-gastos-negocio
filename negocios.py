@@ -1,14 +1,3 @@
-gastos_negocio = [
-    {"descripcion": "Renta del local", "monto": 15000.00, "categoria": "Renta"},
-    {"descripcion": "Compra de insumos", "monto": 3500.00, "categoria": "Insumos"},
-    {
-        "descripcion": "Publicidad en redes",
-        "monto": 1200.00,
-        "categoria": "Marketing",
-    },
-]
-
-
 class GestorGastos:
     def __init__(self, gastos):
         self.gastos = gastos
@@ -53,14 +42,13 @@ class GestorGastos:
         return max(totales, key=totales.get)
 
 
-def main():
-    gestor = GestorGastos(gastos_negocio)
-
+def menu(gestor):
     while True:
         print("1. Ver todos los gastos")
         print("2. Agregar un gasto nuevo")
         print("3. Buscar gastos por categoria")
         print("4. Ver el total gastado en una categoria")
+        print("5. Ver la categoria mas costosa")
         print("0. Salir")
         opcion = input("Seleccione una opción: ")
         if opcion == "1":
@@ -79,9 +67,25 @@ def main():
             categoria = input("Categoría: ")
             total = gestor.total_por_categoria(categoria)
             print(f"Total gastado en {categoria}: ${total:.2f}")
+        elif opcion == "5":
+            print(f"Categoría más costosa: {gestor.categoria_mas_costosa()}")
         elif opcion == "0":
             print("Hasta luego")
             break
+
+
+def main():
+    gastos_negocio = [
+        {"descripcion": "Renta del local", "monto": 15000.00, "categoria": "Renta"},
+        {"descripcion": "Compra de insumos", "monto": 3500.00, "categoria": "Insumos"},
+        {
+            "descripcion": "Publicidad en redes",
+            "monto": 1200.00,
+            "categoria": "Marketing",
+        },
+    ]
+    gestor = GestorGastos(gastos_negocio)
+    menu(gestor)
 
 
 if __name__ == "__main__":
